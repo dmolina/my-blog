@@ -1,4 +1,4 @@
-baseURL = "http://dmolina.github.io/"
+baseURL = "https://daniel.molina.gitlab.io/blog/"
 languageCode = "es"
 title = "My little geek webpage"
 theme = "future-imperfect"
