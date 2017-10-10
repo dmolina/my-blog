@@ -1,8 +1,10 @@
-image: monachus/hugo
+image: registry.gitlab.com/pages/hugo:0.29
 
-before_script:
-  - git submodule init
-  - git submodule update --force
+test:
+  script:
+  - hugo
+  except:
+  - master
 
 pages:
   script:
