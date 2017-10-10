@@ -16,7 +16,7 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN # This is the authentication which you will setup in the next step in travis-ci dashboard
-  email: yourmail@mail.com
-  name: "Your username"
+  email: danimolina@mail.com
+  name: "Daniel Molina"
   on:
     branch: master
