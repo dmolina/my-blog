@@ -601,6 +601,60 @@ joy program.
   PS: I have let out other languages that I've been playing in: R, Ruby, Haskell, groovy, F# because I want to write only about languages
   in which I have a strong knowledge, and used it in real-word projects (and not only joy projects).
 
+ 
+* Emacs                                                              :@emacs:
+
+** DONE Elfeed: Using emacs for reading RSS                           :emacs:
+   CLOSED: [2017-10-12 Thu 17:53]
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: emacs_rss
+   :ID:       e208e2ea-28e5-4828-9042-a2d48542d3b3
+   :END:
+
+In last years I have been using Emacs for almost all my daily tasks: 
+
+- Reading my emails (using [[http://www.djcbsoftware.nl/code/mu/mu4e.html][mu4e]]).
+- Creating the slides for my courses using org-beamer.
+- Using dired to navigate for the file system).
+- Publishing this blog (using [[https://gohugo.io/][Hugo]] and [[https://ox-hugo.netlify.com/][ox-hugo]]).
+
+The last thing to integrate into emacs is reading blogs and news from RSS files. 
+Adding [[https://github.com/skeeto/elfeed][elfeed]] and [[https://github.com/remyhonig/elfeed-org][elfeed-org]] I was able to create RSS. elfeed-org 
+is very simple, it allows to add the feeds as items in org-mode:
+
+#+BEGIN_EXAMPLE
+- Blogs                                                              :elfeed:
+
+  - https://www.meneame.net/rss                                  :news:portada:
+  - https://www.meneame.net/rss?status=queued                            :news:
+  - http://planet.emacsen.org/atom.xml                                :emacs:
+  - https://www.reddit.com/r/programming/.rss                     :programming:
+  ...
+#+END_EXAMPLE
+  
+The tags for each feed will be shared for all articles. 
+
+Then, loading *elfeed*, it can be obtained a screen showing the different articles:
+
+[[/screen/elfeed.png]]
+
+And selecting an article, it can be open, read and open each link by the default browser.
+
+[[/screen/elfeed2.png]]
+
+Several opinions about elfeed:
+
+- It is very simple to use. 
+
+- The use of tags is very powerful, not only they received the tags from the
+  category, and you can add a tag to an article.
+
+- The search filter is simple and very powerful, you can filter both for date and for tags. 
+
+- The search filter can be kept as bookmark, so using C-x r b it can be seen the
+  article using a particular filter.
+
+To summary, *elfeed* has been a great discovery. If you use emacs, give it a try.
 
 * Teaching                                           :@teaching:@programming:
 
