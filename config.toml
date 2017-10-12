@@ -33,7 +33,7 @@ pluralizeListTitles = false
     # This will appear on the top left of the navigation bar
     navbarTitle          = "Daniel Molina"
     # set this to the section name if section is not post
-    viewMorePostLink     = "/blog/"
+    viewMorePostLink     = "/post/"
 
 # Optional Params
     # This will match the navbarTitle to the section of the website
