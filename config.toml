@@ -1,4 +1,4 @@
-baseURL = "https://daniel.molina.gitlab.io/blog/"
+baseURL = "http://dmolina.github.io/"
 languageCode = "es"
 title = "My little geek webpage"
 theme = "future-imperfect"
@@ -31,7 +31,7 @@ pluralizeListTitles = false
   background_color_class = "bg-black"
   featured_image = "/images/gohugo-default-sample-hero-image.jpg"
     # This will appear on the top left of the navigation bar
-    navbarTitle          = "Future Imperfect"
+    navbarTitle          = "Daniel Molina"
     # set this to the section name if section is not post
     viewMorePostLink     = "/blog/"
 
@@ -75,10 +75,8 @@ pluralizeListTitles = false
 # This is optional, but it's suggested to use
 [params.intro]
     header    = "Daniel Molina Cabrera"
-
     paragraph = "Personal Blog"
-
-    about     = "<ul><li>Profesor de la Universidad de Granada.</li><li>Linuxero convencido.</li></ul>"
+    about     = "<ul><li>Teacher of University of Granada.</li><li>Computer Science and A.I. Researcher.</li><li>Linuxer.</li></ul>"
 
 # This will also appear on the sidebar.
 # A width of less than 100px is recommended
@@ -90,7 +88,7 @@ pluralizeListTitles = false
     circle    = true
     imperfect = true
     width     = "200"
-    alt       = "Hugo Future Imperfect"
+    alt       = "My Face"
 
 # Adjust the amount of recent posts on the sidebar.
 # This is optional. The default value 5 will be used
@@ -119,22 +117,16 @@ pluralizeListTitles = false
     weight = 3
 
 [[menu.main]]
-    name = "Itemized"
-    url = "/itemized/"
-    identifier = "fa fa-list"
-    weight = 4
-
-[[menu.main]]
     name = "Categories"
     url = "/categories/"
     identifier = "fa fa-sitemap"
-    weight = 5
+    weight = 4
 
 [[menu.main]]
     name = "Contact"
     url = "/contact/"
     identifier = "fa fa-envelope-o"
-    weight = 6
+    weight = 5
 
 # Insert your username and the icon will apear on the page as long as
 # socialAppearAtTop or socialAppearAtBottom is set to true in the params area
