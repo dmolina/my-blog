@@ -1,17 +1,16 @@
 baseURL = "http://dmolina.github.io/"
-languageCode = "es"
-title = "My little geek webpage"
+languageCode = "en"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
 theme = "future-imperfect"
 preserveTaxonomyNames = true
-
-
 MetaDataFormat = "yaml"
-DefaultContentLanguage = "es"
 SectionPagesMenu = "main"
 Paginate = 3 # this is set low for demonstrating with dummy content. Set to a higher number
 googleAnalytics = ""
 enableRobotsTXT = true
 pluralizeListTitles = false
+copyright = "All text is licensed under a Creative Commons Attribution 4.0 International License."
 
 [sitemap]
   changefreq = "monthly"
@@ -74,9 +73,15 @@ pluralizeListTitles = false
 # parms.intro will appear on the sidebar
 # This is optional, but it's suggested to use
 [params.intro]
-    header    = "Daniel Molina Cabrera"
+    header    = "Daniel Molina"
     paragraph = "Personal Blog"
     about     = "<ul><li>Teacher of University of Granada.</li><li>Computer Science and A.I. Researcher.</li><li>Linuxer.</li></ul>"
+[Languages.es.intro]
+    header    = "Daniel Molina"
+    paragraph = "Blog Personal"
+    about     = "<ul><li>Profesor de la Universidad de Granada.</li><li>Computer Science and A.I. Researcher.</li><li>Linuxero y Emacsero convencido.</li></ul>"
+
+
 
 # This will also appear on the sidebar.
 # A width of less than 100px is recommended
@@ -90,39 +95,88 @@ pluralizeListTitles = false
     width     = "200"
     alt       = "My Face"
 
+# This will also appear on the sidebar.
+# A width of less than 100px is recommended
+# This is optional
+[Languages.es.intro.pic]
+    src       = "/img/main/yo.png"
+    # modify your picture in the shape of a circle or
+    # future imperfect's hexagonal shape
+    circle    = true
+    imperfect = true
+    width     = "200"
+    alt       = "Mi careto"
+
 # Adjust the amount of recent posts on the sidebar.
 # This is optional. The default value 5 will be used
 [params.postAmount]
     sidebar = 2
 
-# Set up your menu items in the navigation bar
-# You can use identifier to prepend a font awesome icon to your text
+[Languages]
+[Languages.es]
+title = "Mi pequeño blog friki"
+languageName = "Spanish"
+languageCode = "es"
 
-[[menu.main]]
-    name = "Home"
+[[Languages.es.menu.main]]
+    name = "Hogar"
     url = "/"
     identifier = "fa fa-home"
     weight = 1
 
-[[menu.main]]
-    name = "About"
+[[Languages.es.menu.main]]
+    name = "Sobre mí"
     url = "/about/"
     identifier = "fa fa-id-card-o"
     weight = 2
 
-# [[menu.main]]
+# [[Languages.en.menu.main]]
 #     name = "Blog"
 #     url = "/post/"
 #     identifier = "fa fa-newspaper-o"
 #     weight = 3
 
-[[menu.main]]
+[[Languages.es.menu.main]]
+    name = "Categorías"
+    url = "/categories/"
+    identifier = "fa fa-sitemap"
+    weight = 4
+
+#
+
+
+[Languages.en]
+title = "My little geek webpage"
+languageName = "English"
+languageCode = "en"
+
+# Set up your menu items in the navigation bar
+# You can use identifier to prepend a font awesome icon to your text
+[[Languages.en.menu.main]]
+    name = "Home"
+    url = "/"
+    identifier = "fa fa-home"
+    weight = 1
+
+[[Languages.en.menu.main]]
+    name = "About"
+    url = "/about/"
+    identifier = "fa fa-id-card-o"
+    weight = 2
+
+# [[Languages.en.menu.main]]
+#     name = "Blog"
+#     url = "/post/"
+#     identifier = "fa fa-newspaper-o"
+#     weight = 3
+
+[[Languages.en.menu.main]]
     name = "Categories"
     url = "/categories/"
     identifier = "fa fa-sitemap"
     weight = 4
 
-# [[menu.main]]
+# [[languages.en.menu.main]]
 #     name = "Contact"
 #     url = "/contact/"
 #     identifier = "fa fa-envelope-o"
