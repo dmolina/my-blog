@@ -5,15 +5,12 @@
 #+DATE: 2012-07-15
 * Personal                                                        :@personal:
 
-
 ** About me                                                            :menu:
    :PROPERTIES:
    :EXPORT_FILE_NAME: about
-   :HUGO_MENU: :menu "main"
    :EXPORT_DATE: 2012-07-15
    :HUGO_DATE: 2012-07-15
    :END:
-
 
 About me.
 
