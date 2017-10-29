@@ -505,103 +505,196 @@ By the way, *capture.output* is a function that disables all the output of DEopt
 
 
 
-
-** Learning new languages?
+ 
+** DONE Property-Based Testing :python:testing:
+   CLOSED: [2017-10-24 Tue 17:37]
    :PROPERTIES:
-   :EXPORT_FILE_NAME: languages
-   :EXPORT_DATE: 2012-07-04
+   :EXPORT_FILE_NAME: hypothesis_test
+   :EXPORT_DATE: 2017-10-24
    :END:
 
-I love to learn new programming languages, specially whose that has new features that could be used to change your personal
-programming way. Also, it is very useful to get used to accept new ideas and avoid get in in the famous /language wars/.
-In this post, I'm going to give my personal idea of these languages, starting from a C/C++ and Java
-programmer. Over all, this is my personal opinion, after hours of working in these languages, not only using a 
-joy program. 
+Today I was reviewing a paper that I am doing in collaboration with other colleagues, 
+a Phd student living in Sweden (in Västerås, a lovely city at a hour from Stockholm, 
+I had a stay for 3 months three years ago). Then, to be sure that the proposed algorithm, 
+a memetic version of a Differential Evolution, I started to implement it.  
 
-*** Perl
+During the code, I need to create group of random variables, without repetition.
 
-  It was my first /scripting language/, and I've been working in Perl in a proyect for a private company for two years
-  eight hours per day (my first job without extra hours without been paid). In that case, it was a good language decision,
-  and I learnt many tricks to write readable programs in *Perl*.
+it could be generated in the following way:
 
-  - _community_:
-    A community that likes to create an ecosystem to reuse, that create the [[http://www.cpan.org][CPAN]]. At the same time, a
-    community that enforces freedom, allowing each one to use the library and guidelines that considers good. 
+#+BEGIN_SRC python
+for i in range(popsize):
+    r1[i] = np.random.rand...
+    r2[i] = np.random.rand...
 
-  - _The good:_
-    The [[http://www.cpan.org][CPAN]], and the conciseness and flexbility of the language, with packages like [[http://search.cpan.org/search?q%3DMoose][Moose]] and several test packages
-    (and very strange packages in /ACME/ domain :-) ). At the same time, there is always simpler version of packages if
-    you want them. 
+    while r1[i] == r2[i]:
+        r2[i] = np.random.rand...
+#+END_SRC
 
-  - _The bad:_
-    The original Object-Oriented, the complexity in creating your own modules (in comparisons to the simpler
-    packages model like python). Also, if you don't want to use object-oriented, sometimes you need to create complex
-    combinations of /hashes/ and /arrays/ with references, and it is not very readable.
-  
-  - _Developer tools_: I usually edit with [[http://www.vim.org][Vim]], I don't need any particular framework, but I strongly recommend strict
-    mode, and essential packages like [[http://search.cpan.org/search?q%3Dautodie][autodie]], [[http://search.cpan.org/search?q%3DMoose][Moose]], [[http://search.cpan.org/search?q%3DFile::IO][File::IO]], test packages like [[http://search.cpan.org/search?q%3DTest::More][Test::More]]. Always check [[http://www.cpan.org][CPAN]] before a new
-    proyect.
+However, it is not practical, for Matlab/Numpy it is better to work as vectors:
 
-  I resume, although many people say that Perl is dead, it is still alive, and if you learn it, you don't regret it, it is
-  a very useful tool. I still makes many small programs almost everyday using Perl because it's a very useful language,
-  mainly for text processing (probably the best one).
+#+BEGIN_SRC python
+r1 = np.random.choice(popsize, popsize)
+r2 = np.random.choice(popsize, popsize)
+# Avoid repeated values
+r2 = change_repeated(r2, r1, popsize)
+#+END_SRC
 
-  To learn more I recommend the free book [[http://hop.perl.plover.com/][Higher-Order Perl]], it is a opening book. Also, the freely book [[http://www.modernperlbooks.com][Modern Perl]] is a
-  useful book to see new modern programming ways and wonderful packages.
+I need *change_repeated* to randomly generated again the values in r2 when it is equals 
+than r1 (in the same position).
 
-*** Python 
+Then, I create the function:
 
-  My first love, a very simple but more readable, and very useful tools for any field. The most beautiful syntax in my
-  opinion. I have been deeply working in Python, for prototyping and several complex project.  Also, very good in web
-  developer (my favourite is [[http://www.djangoproject.com][Django]] but there are many good ones). 
+#+BEGIN_SRC python
+def change_repeated(values, original, maxvalue: int):
+    """
+    Repeat the values which are equals than original (position by position)
 
-  - _The good:_ Its syntax, packages and object models. Also, its libraries have tendency to have simple APIs (by a
-    community very worried about that). The great interactive shell [[http://ipython.org][ipython]]. Also, it have many interesting tools for
-    scientific researchers: [[http://numpy.scipy.org/][numpy]], [[http://matplotlib.sourceforge.net/][matplotlib]], several parallel libraries, [[http://www.scipy.org/][scipy]].
+    :param values: array vector
+    :param original: array vector or elements to not repeat
+    :param maxvalue: maximum value (new ones will be between [0,  maxvalue])
+    :returns: list of new values
+    :rtype: ndarray.
 
-  - _The bad:_ nothing really serious, the inherent problems with duck typing, like excessive trivial testing. However,
-    tools like [[http://pypi.python.org/pypi/pyflakes/][pyflakes]] or [[http://pypi.python.org/pypi/pylint/][pylint]] allow developers reduce trivial errors.
+    """
+    equals, = np.nonzero(values == original)
 
-  - _Developer tools:_ Sometimes I edit with [[http://www.vim.org][Vim]], but nowadays I uses [[http://code.google.com/p/spyderlib/][spyder 2]] by its integration with  [[http://pypi.python.org/pypi/pyflakes/][pyflakes]] and
-    [[http://ipython.org][ipython]]. There are also very good IDEs like [[http://eric-ide.python-projects.org/][eric4]]. For performance aspects, there are many tools, in a future
-    post, I am going to put a real example of improvement.
+    while len(equals) > 0:
+        size = len(equals)
+        values[equals] = np.random.choice(maxvalue, size)
+        equals, = np.nonzero(values == original)
 
-  I resume, it is a very good language that any developer should now, because it is very simple and useful. Specially for
-  scientific works, not only by the mathematical tool [[http://www.sagemath.org/][Sage]] but also by many libraries.
+    return values
+#+END_SRC
 
-*** Scala
+Great! Now, how I could test it? It could give several examples, and test again them. However, 
+this type of tests can be very boring, so I applied [[https://es.slideshare.net/ScottWlaschin/an-introduction-to-property-based-testing][Property-based testing]].  
 
-  The most recent adquisition to this list is the [[http://www.scala-lang.org/][Scala language]]. This *JVM language* is similar to [[http://groovy.codehaus.org/][Groovy]] but in my
-  opinion, superior.  However, it is a very good language but I think that it is not very popular in pragmatic programmer
-  by the scientific origin of its author, clearly seen in its documentation. Also, sometimes the /converse/ developers
-  likes to show how flexible and powerful is the language with complex examples (not in length, but in its syntax) have
-  given the idea of a complex language.
+In this type of tests, instead of comparing examples of inputs and outputs, you test properties
+that the function should follow for every possible input. 
 
-  - _The good:_ Its syntax is very orthogonal and simple (reducing the verbosity of Java). It is a strong typing system
-    (different with *groovy*) with a auto-detection of types (like auto keywords in other languages). It enforces to uses
-    immutable classes and method, allowing you a functional programming.
+For instance, if you have implemented sqrt function:
 
-  - _The bad:_ Differences in generical contenedors with Java. There are very powerful but you have to converse from one
-    to another.
-
-  - _Developer tools:_ like in Java, I recommed [[http://www.eclipse.org][Eclipse]] with [[http://scala-ide.org/][scala plugins]]. For compiling proyects in both
-    languages you can use [[http://maven.apache.org/][maven]] but you need several plugins (only if you combine them). Another compiling tools like
-    [[https://github.com/harrah/xsbt/wiki/][sbt]] or [[http://gradle.org/][grandle]] could be useful.
-
-  In resume, a very interesting language that java developer should give a look, but it still have a promising future. 
-
-  In my opinion, its community should 'break' the idea of complexity or it going to be a very niching language while groovy would
-  be stronger and widely used.
-
-*** In resume
-
-  I always recommend to learn new languages. You can learn many possibilites: clojure, immutability, libraries, ... that are not 
-  so visible in your current main language. 
-
-  PS: I have let out other languages that I've been playing in: R, Ruby, Haskell, groovy, F# because I want to write only about languages
-  in which I have a strong knowledge, and used it in real-word projects (and not only joy projects).
-
+- Traditional testing :: Check sqrt(25)==5,  sqrt(16)==4,  sqrt(9)==3,  sqrt(5)=2.23....
  
+- Property-based testing :: Check that the result of sqrt multiply for itself gives the original number.
+
+#+BEGIN_EXPORT latex
+sqrt(num)^2 == num,  \forall num \in \Real
+sqrt(num) >= 0
+#+END_EXPORT 
+
+When you are using property-based testing, you can use a particular library to
+automatically run your test with random inputs (with some constraints) hundreds
+of times.
+There are many tools for this: from the original [[https://en.wikipedia.org/wiki/QuickCheck][QuickCheck]], [[https://www.scalacheck.org/][ScalaCheck]] for Scala, or [[https://github.com/HypothesisWorks/hypothesis-python][Hypothesis]] for Python. 
+In our case,  we are using the simple Hypothesis, that it is very [[https://hypothesis.readthedocs.io/en/latest/quickstart.html][well-documented]]. 
+
+In our case, the properties of repeated(ys, xs) are:
+
+- when xs and ys have some variable in common:
+
+  + repeated(ys,  xs) must be different than ys.
+
+  + the result must be different than original vector (to avoid to modify the original one).
+
+  + The indexes where ys and repeated(ys, xs) are different xs == ys.
+
+The testing was done in the following way:
+
+First the import: 
+
+#+BEGIN_SRC python
+from hypothesis import given
+import hypothesis.strategies as st
+import numpy as np
+#+END_SRC
+
+- Then, we describe the range of float values:
+
+#+BEGIN_SRC python
+type_index = st.integers(min_value=0, max_value=popsize)
+#+END_SRC
+
+In that way, type_index create random values between [0,  popsize-1]
+
+Then, we define the input as a list of previous integers:
+
+#+BEGIN_SRC python 
+type_list = st.lists(type_index, min_size=popsize, max_size=popsize)
+#+END_SRC
+
+We have set the min_size and max_size equals to get lists with the same size.
+Hypothesis works by default with lists of different sizes.
+
+Then, we say the type of each parameter:
+
+#+BEGIN_SRC python
+@given(type_list, type_list)
+def test_random_norepeat(x, y):
+    xs = np.array(x)
+    ys_orig = np.array(y)
+    ys = np.copy(ys_orig)
+
+    if np.any(xs == ys):
+        ys = change_repeated(ys, xs, dim)
+        # It cannot be any repeated element
+        assert not np.any(xs == ys)
+        # It can be change any  algorithm
+        assert not np.all(ys == ys_orig)
+        # The change must be justify
+        assert np.all((ys == ys_orig) | (ys_orig == xs))
+        # Check that all values are between [0, dim]
+        assert np.all((ys >= 0) & (ys < dim))
+#+END_SRC
+
+When it is run with *py.test* the hypothesis library will test the function with
+hundreds of random xs and ys, when xs and ys are lists of size *popsize* and the
+values between [0, popsize). If it fails, it will show you the /xs/ and /ys/
+values for which the code fails the test, it is very useful.  
+
+By the way, the original DE can be implemented like:
+
+#+BEGIN_SRC python
+    # Init population
+    pop = pop_init(popsize, dim, min=min_value, max=max_value)
+    fit = np.array([eval(sol) for sol in pop])
+    nevals = 0
+
+    while nevals <= maxevals:
+        # Generate all random positions
+        r1 = np.random.choice(popsize, popsize)
+        r2 = np.random.choice(popsize, popsize)
+        r3 = np.random.choice(popsize, popsize)
+        # Avoid repeated values
+        r2 = change_repeated(r2, r1, popsize)
+        r3 = change_repeated_list(r3, [r1, r2], popsize)
+        # New population, mutation
+        V = pop[r1] + F*(pop[r2]-pop[r3])
+        # Clipping
+        V = np.clip(V, min_value, max_value)
+        # Define U
+        U = np.copy(pop)
+        # Select cr
+        cr = np.random.rand(popsize*dim).reshape((popsize, dim))
+        # Make sure that for each individual a position is changed
+        cr[np.arange(popsize), np.random.choice(dim, popsize)] = 0
+        # Eq. 2 (crossover)
+        U.flat[cr.flat < CR] = V.flat
+        fitU = [eval(sol) for sol in U]
+        nevals += popsize
+        # Replacement
+        better_cond = fitU < fit
+        # Expand for dimension
+        better_cond = np.repeat(better_cond, dim).reshape((popsize, dim))
+        # Replace the best individual in population
+        pop = np.where(better_cond, U, pop) 
+        fit = np.minimum(fit, fitU)
+#+END_SRC
+
+I have to organize it a little, but in only 35 lines (including comments) a complete 
+[[https://en.wikipedia.org/wiki/Differential_evolution][Differential Evolution]] can be implemented. Numpy is awesome!
+
 * Emacs                                                              :@emacs:
 
 ** DONE Elfeed: Using emacs for reading RSS                           :emacs:
@@ -616,7 +709,7 @@ In last years I have been using Emacs for almost all my daily tasks:
 - Reading my emails (using [[http://www.djcbsoftware.nl/code/mu/mu4e.html][mu4e]]).
 - Creating the slides for my courses using org-beamer.
 - Using dired to navigate for the file system).
-- Publishing this blog (using [[https://gohugo.io/][Hugo]] and [[https://ox-hugo.netlify.com/][ox-hugo]]).
+- Publishing this blog (using [[https://gohugo.io/][Hugo]] and [[https://ox-hugo.scripter.co][ox-hugo]]).
 
 The last thing to integrate into emacs is reading blogs and news from RSS files. 
 Adding [[https://github.com/skeeto/elfeed][elfeed]] and [[https://github.com/remyhonig/elfeed-org][elfeed-org]] I was able to create RSS. elfeed-org 
@@ -655,6 +748,7 @@ Several opinions about elfeed:
   article using a particular filter.
 
 To summary, *elfeed* has been a great discovery. If you use emacs, give it a try.
+
 
 * Teaching                                           :@teaching:@programming:
 
