@@ -1,7 +1,7 @@
 +++
 title = "Elfeed: Using emacs for reading RSS"
 date = 2017-10-12T17:53:00+02:00
-lastmod = 2017-10-12T20:18:23+02:00
+lastmod = 2017-10-14T11:43:36+02:00
 tags = ["emacs"]
 categories = ["emacs"]
 draft = false
@@ -12,7 +12,7 @@ In last years I have been using Emacs for almost all my daily tasks:
 -   Reading my emails (using [mu4e](http://www.djcbsoftware.nl/code/mu/mu4e.html)).
 -   Creating the slides for my courses using org-beamer.
 -   Using dired to navigate for the file system).
--   Publishing this blog (using [Hugo](https://gohugo.io/) and [ox-hugo](https://ox-hugo.netlify.com/)).
+-   Publishing this blog (using [Hugo](https://gohugo.io/) and [ox-hugo](https://ox-hugo.scripter.co)).
 
 The last thing to integrate into emacs is reading blogs and news from RSS files.
 Adding [elfeed](https://github.com/skeeto/elfeed) and [elfeed-org](https://github.com/remyhonig/elfeed-org) I was able to create RSS. elfeed-org
