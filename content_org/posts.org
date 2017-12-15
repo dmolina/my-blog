@@ -749,6 +749,61 @@ Several opinions about elfeed:
 
 To summary, *elfeed* has been a great discovery. If you use emacs, give it a try.
 
+** DONE Fill-more or the important of reading documentation     :emacs:trick:
+   CLOSED: [2017-12-15 Fri 11:28]
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: emacs_justify
+   :END:
+
+I *love* Emacs and the auto-fill more. When I work I use it always to make
+easier to read the text (with a small value, like 80 or 100). Then, if I have 
+to copy to a Word Document (in collaboration with other people) or a text (like
+in the submission of a review) I simple set the fill-column to a large value
+(2000 or similar), with C-x f. Later, I copy all the text. 
+
+Until now I have suffered in silence a small problem in text-mode (not in
+org-mode). If you put
+
+#+BEGIN_SRC sh
+Text. 
+
+- Item 1. 
+- Item 2.
+#+END_SRC  
+
+After the fill-mode, you have:
+
+#+BEGIN_SRC sh
+Text. 
+
+- Item 1 Item 2.
+#+END_SRC
+
+And to have in right you have to put a line between them:
+
+#+BEGIN_SRC sh
+Text. 
+
+- Item 1.
+
+- Item 2.
+#+END_SRC
+
+(The line between Text and first item is also required).
+
+I though it was something inevitable, but checking the documentation, 
+
+https://www.emacswiki.org/emacs/FillParagraph
+
+I have known that with a simple line in elisp that behavior is fixed:
+
+#+BEGIN_SRC elisp
+    ;; The original value is "\f\\|[      ]*$", so we add the bullets (-), (+), and (*).
+    ;; There is no need for "^" as the regexp is matched at the beginning of line.
+    (setq paragraph-start "\f\\|[ \t]*$\\|[ \t]*[-+*] ")
+#+END_SRC
+
+I must check the available documentation more often :-).
 
 * Teaching                                           :@teaching:@programming:
 
