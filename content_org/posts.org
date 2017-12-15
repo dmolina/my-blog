@@ -858,3 +858,46 @@ most useful operations, by my experience), available as pdf format here:
 [slides_pandas.pdf](./slides/slides_pandas.pdf) (In a future post, I will say as I
 prepare my slides using Emacs+Org-mode). /Unfortunately/, the new teacher was
 ready,  and I have to finish my courses using python for BI. 
+* OpenSource                                                     :@opensource:
+
+** DONE Firefox 3.5 and Mouseless              :firefox:opensource:mouseless:
+   CLOSED: <2017-12-05 Tue 12:10>
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: firefox35
+   :END:
+
+I have recently changed to [[https://www.mozilla.org/en-US/firefox/new/][Firefox 3.5]], and it is awesome!!
+
+The main improvements I have checked:
+
+- Better performance. 
+
+- Reader mode, it is very useful to read without distractions, specially in
+  mobile. Also, it is mouseless friendly, with the shortkey *Ctrl+Alt+r*. 
+
+- Screenshots of a website, that you can share with anybody (not more excuses
+  for my students for not showing me their web app in develop).
+
+The bad thing is that many extensions are not valid anymore:
+
+- [[https://www.zotero.org/][Zotero]] has changed to be a java application, and the great [[https://github.com/vspinu/zotelo][Zotelo (extension
+  for Emacs)]] is not working anymore :-(.
+
+- Also, several extensions to improve the mouseless navigation stop working. 
+
+Fortunately, /uBlock Origin/ is still working, and I have found [[https://addons.mozilla.org/en-US/firefox/addon/tridactyl-vim/][Tridactyl]], an
+extension with several nice features:
+
+- *f* and *F* allows you to open links (in same tab or new) identifying them with
+  letters (in a very sensible way, my favourive way until now).
+
+- *b* is bookmarks, it allows you to go to another open tab. 
+
+- *s* is search mode using the history, with tab you can go your favourite website
+  more easily. 
+
+- And *ZZ* close all firefox tabs, very useful for a person with Vim-background
+  like me :-).
+
+To summarize, if you do not like use the mouse for almost everything, and you
+want to browse more easily, try [[https://addons.mozilla.org/en-US/firefox/addon/tridactyl-vim/][Tridactyl]].
