@@ -8,7 +8,7 @@
 * Programming                                                  :@programming:
 
 ** DONE Bokeh plot in Django and with REST and Flask :python:flask:django:bokeh:
-   CLOSED: [2017-12-19 Tue 17:01]
+   CLOSED: [2017-12-19 Tue 17:53]
    :PROPERTIES:
    :EXPORT_FILE_NAME: rest_bokeh
    :END:
@@ -206,7 +206,8 @@ And the result is:
 
 [[file:/img/rest_test.png]]
 
-** Improving performance in Python                       :python:performance:
+** DONE Improving performance in Python                  :python:performance:
+   CLOSED: [2017-12-19 Tue 17:53]
    :PROPERTIES:
    :EXPORT_FILE_NAME: improving_python1
    :EXPORT_DATE: 2012-07-15
@@ -626,7 +627,8 @@ doubts about the performance, so I start writing one element, an Steady-State Ge
 # End:
 
 
-** Callback that stop algorithm in R                                 :R:util:
+** DONE Callback that stop algorithm in R                            :R:util:
+   CLOSED: [2017-12-19 Tue 17:53]
    :PROPERTIES:
    :EXPORT_FILE_NAME: rmain
    :EXPORT_DATE: 2012-07-10
@@ -705,8 +707,8 @@ By the way, *capture.output* is a function that disables all the output of DEopt
 
 
  
-** DONE Property-Based Testing :python:testing:
-   CLOSED: [2017-10-24 Tue 17:37]
+** DONE Property-Based Testing                               :python:testing:
+   CLOSED: [2017-12-19 Tue 17:52]
    :PROPERTIES:
    :EXPORT_FILE_NAME: hypothesis_test
    :EXPORT_DATE: 2017-10-24
@@ -899,7 +901,7 @@ I have to organize it a little, but in only 35 lines (including comments) a comp
 * Emacs                                                              :@emacs:
 
 ** DONE Elfeed: Using emacs for reading RSS                           :emacs:
-   CLOSED: [2017-10-12 Thu 17:53]
+   CLOSED: [2017-12-19 Tue 17:52]
    :PROPERTIES:
    :EXPORT_FILE_NAME: emacs_rss
    :ID:       e208e2ea-28e5-4828-9042-a2d48542d3b3
