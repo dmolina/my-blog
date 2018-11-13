@@ -1137,7 +1137,7 @@ data-id="91646e938fd34096b1613126a1828101" data-ratio="1.33333333333333"
 src="//speakerdeck.com/assets/embed.js"></script>
 
 #+caption: Certificate as a winner of the LSGO competition
-[[/img/winner_lsgo_2018.png]]
+[[file:/img/winner_lsgo_2018.png]]
 
 - A new website for comparisons algorithms, [[https://tacolab.org]], which is briefly
   described [[https://speakerdeck.com/dmolina/taco-toolkit-for-automatic-comparison-optimizers-for-lsgo][here in English]], and [[http://slides.tacolab.org/][also in Spanish]].
