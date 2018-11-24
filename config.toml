@@ -75,12 +75,12 @@ copyright = "All text is licensed under a Creative Commons Attribution 4.0 Inter
 [params.intro]
     header    = "Daniel Molina"
     paragraph = "Personal Blog"
-    about     = "<ul><li>Teacher of University of Granada.</li><li>Computer Science and A.I. Researcher.</li><li>Linuxer.</li></ul>"
+    about     = "<ul><li>Teacher of University of Granada.</li><li>Computer Science and A.I. Researcher.</li><li><a href='https://sci2s.ugr.es/publications?&auth=D.%20Molina' target='_blank'>My Publications</a></li><li>Linux lover.</li></ul>"
+    
 [Languages.es.intro]
     header    = "Daniel Molina"
     paragraph = "Blog Personal"
-    about     = "<ul><li>Profesor de la Universidad de Granada.</li><li>Computer Science and A.I. Researcher.</li><li>Linuxero y Emacsero convencido.</li></ul>"
-
+    about     = "<ul><li>Profesor de la Universidad de Granada.</li><li>Computer Science and A.I. Researcher.</li><a href='https://sci2s.ugr.es/publications?&auth=D.%20Molina' target='_blank'>Mis Publicaciones</a></li><li>Linuxero y Emacsero convencido.</li></ul>"
 
 
 # This will also appear on the sidebar.
