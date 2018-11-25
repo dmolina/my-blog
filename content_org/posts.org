@@ -1085,7 +1085,8 @@ The spanish version is:
 
 [[http://htmlpreview.github.io/?https://github.com/dmolina/intro_cmake/blob/master/cmake_es.html][file:/img/capture_spanish.png]]
 
-
+All the source code (in [[https://github.com/hakimel/reveal.js/][reveal.js]], through [[https://github.com/yjwen/org-reveal/][org-reveal]]) are available at:
+https://github.com/dmolina/intro_cmake
 
 ** TODO Introducción a CMake
    :PROPERTIES:
