@@ -5,7 +5,7 @@ defaultContentLanguageInSubdir = true
 theme = "future-imperfect"
 preserveTaxonomyNames = true
 MetaDataFormat = "yaml"
-SectionPagesMenu = "main"
+# SectionPagesMenu = "main"
 Paginate = 3 # this is set low for demonstrating with dummy content. Set to a higher number
 googleAnalytics = ""
 enableRobotsTXT = true
@@ -125,10 +125,10 @@ languageCode = "es"
     weight = 1
 
 [[Languages.es.menu.main]]
-    name = "Sobre mí"
-    url = "/about/"
-    identifier = "fa fa-id-card-o"
-    weight = 2
+name = "Mi GitHub"
+weight = 0
+identifier = "GitHub"
+url = "http://github.com/dmolina"
 
 # [[Languages.en.menu.main]]
 #     name = "Blog"
@@ -137,12 +137,29 @@ languageCode = "es"
 #     weight = 3
 
 [[Languages.es.menu.main]]
+name = "GitHub"
+weight = 0
+identifier = "GitHub"
+url = "http://github.com/dmolina"
+
+[[Languages.es.menu.main]]
+name = "Publicaciones"
+weight = 300
+identifier = "paxpers"
+url = "https://sci2s.ugr.es/publications?&auth=D.%20Molina"
+
+[[Languages.es.menu.main]]
+    name = "Sobre mí"
+    url = "/about/"
+    identifier = "fa fa-id-card-o"
+    weight = 2
+
+[[Languages.es.menu.main]]
     name = "Categorías"
-    url = "/categories/"
+    url = "/es/categorias/"
     identifier = "fa fa-sitemap"
     weight = 4
 
-#
 
 
 [Languages.en]
@@ -159,10 +176,22 @@ languageCode = "en"
     weight = 1
 
 [[Languages.en.menu.main]]
-    name = "About"
+    name = "GitHub"
+    weight = 30
+    identifier = "fa fa-github GitHub"
+    url = "http://github.com/dmolina"
+
+[[Languages.en.menu.main]]
+    name = "Research Papers"
+    weight = 20
+    identifier = "papers"
+    url = "https://sci2s.ugr.es/publications?&auth=D.%20Molina"
+
+[[Languages.en.menu.main]]
+    name =  "About"
     url = "/about/"
     identifier = "fa fa-id-card-o"
-    weight = 2
+    weight = 50
 
 # [[Languages.en.menu.main]]
 #     name = "Blog"
@@ -172,7 +201,7 @@ languageCode = "en"
 
 [[Languages.en.menu.main]]
     name = "Categories"
-    url = "/categories/"
+    url = "/en/categories/"
     identifier = "fa fa-sitemap"
     weight = 4
 
