@@ -1061,6 +1061,46 @@ most useful operations, by my experience), available as pdf format here:
 [slides_pandas.pdf](./slides/slides_pandas.pdf) (In a future post, I will say as I
 prepare my slides using Emacs+Org-mode). /Unfortunately/, the new teacher was
 ready,  and I have to finish my courses using python for BI. 
+
+** DONE Introduction to CMake
+   CLOSED: [2018-11-24 Sat 22:11]
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: intro_cmake
+   :EXPORT_DATE: 2018-11-24
+   :EXPORT_HUGO_TAGS: cmake cpp teaching
+   :END:
+
+In my last course, I decided to give a small introduction about CMake. The
+reason is that, although we teach them Make, the majority of students do not use
+them in their programs. In fact, many times they create a "makefile" program to
+pretend they are using "make", but actually, it is a bash script. 
+My intention is to teach them [[http://cmake.org/][*Cmake*]] to encourage them to use an automatic tool
+for compiling, expecting they use it more, by its simpler syntax.
+
+The english version is:
+
+[[http://htmlpreview.github.io/?https://github.com/dmolina/intro_cmake/blob/master/cmake_en.html][file:/img/capture_english.png]]
+
+The spanish version is:
+
+[[http://htmlpreview.github.io/?https://github.com/dmolina/intro_cmake/blob/master/cmake_es.html][file:/img/capture_spanish.png]]
+
+
+
+** TODO Introducción a CMake
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: intro_cmake.es
+   :EXPORT_DATE: 2018-11-24
+   :EXPORT_HUGO_TAGS: cmake cpp teaching
+   :END:
+
+En mi último curso, decidí dar una pequeña introducción sobre CMake:
+
+
+[[http://htmlpreview.github.io/?https://github.com/dmolina/intro_cmake/blob/master/cmake_es.html][file:/img/capture_spanish.png]]
+
+
+
 * OpenSource                                                     :@opensource:
 
 ** DONE Firefox 3.5 and Mouseless              :firefox:opensource:mouseless:
@@ -1090,7 +1130,7 @@ The bad thing is that many extensions are not valid anymore:
 
 Fortunately, /uBlock Origin/ is still working, and I have found [[https://addons.mozilla.org/en-US/firefox/addon/tridactyl-vim/][Tridactyl]], an
 extension with several nice features:
-
+ 
 - *f* and *F* allows you to open links (in same tab or new) identifying them with
   letters (in a very sensible way, my favourive way until now).
 
@@ -1105,8 +1145,8 @@ extension with several nice features:
 To summarize, if you do not like use the mouse for almost everything, and you
 want to browse more easily, try [[https://addons.mozilla.org/en-US/firefox/addon/tridactyl-vim/][Tridactyl]].
 
-* Computer Science
-
+* Computer_Science                                        :@computer_science:
+  
 ** DONE Participation in IEEE Congress on Evolutionary Computation CEC'2018
    CLOSED: [2018-11-13 Tue 14:09]
    :PROPERTIES:
