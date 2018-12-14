@@ -33,7 +33,7 @@ copyright = "All text is licensed under a Creative Commons Attribution 4.0 Inter
     # This will appear on the top left of the navigation bar
     navbarTitle          = "Daniel Molina"
     # set this to the section name if section is not post
-    viewMorePostLink     = "/post/"
+    viewMorePostLink     = "/en/post/"
 
 # Optional Params
     # This will match the navbarTitle to the section of the website
