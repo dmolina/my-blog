@@ -9,6 +9,7 @@ MetaDataFormat = "yaml"
 Paginate = 3 # this is set low for demonstrating with dummy content. Set to a higher number
 googleAnalytics = ""
 enableRobotsTXT = true
+enableEmoji = true
 pluralizeListTitles = false
 copyright = "All text is licensed under a Creative Commons Attribution 4.0 International License."
 
