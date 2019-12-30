@@ -1,3 +1,6 @@
+- name: Hugo for GitHub Organization Pages
+  uses: StevenACoffman/hugo-deploy-gh-org-pages@v1.0.4
+
 on: push
 name: Deploy to GitHub Organization Pages
 jobs:
